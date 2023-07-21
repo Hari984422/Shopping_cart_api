@@ -1,26 +1,19 @@
+import axios from "axios";
 import { useState } from "react";
-
 const UserSignUp = () => {
     let [name,setname] = useState("")
     let [email,setemail] = useState("")
     let [password,setpassword] = useState("")
     let [gst,setgst] = useState("")
-    let [phno,setphno] = useState("")
+    let [phone,setphone] = useState("")
 
     let handleSubmit = () => {
-        let data = {name,email,password,gst,phno}
-        fetch('http://localhost:8080/merchants',{
-            method : "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(data)
-        })
-        alert("user data added to the list")
-        
+        let merchant = {name,email,password,gst,phone}
+        axios.post("http://localhost:8080/merchants",merchant).then(()=>{console.log("Data has been added");})    
     }
     return (  
         <div className="usersignup">
             <form onSubmit={handleSubmit} action="">
-                <form action="">
                     <label htmlFor="">
                         Name: <input value={name} onChange={(e) => (setname(e.target.value))} placeholder="Enter name" type="text" name="" id="" />
                     </label>
@@ -28,7 +21,7 @@ const UserSignUp = () => {
                         GST no: <input value={gst} onChange={(e) => (setgst(e.target.value))} type="text" placeholder="Enter GST number" />
                     </label>
                     <label htmlFor="">
-                        phone no : <input value={phno} onChange={(e) => (setphno(e.target.value))} pattern="[0-9]{10}" type="tel" placeholder="Enter phone number" />
+                        phone no : <input value={phone} onChange={(e) => (setphone(e.target.value))} pattern="[0-9]{10}" type="tel" placeholder="Enter phone number" />
                     </label>
                     <label htmlFor="">
                         email : <input value={email} onChange={(e) => (setemail(e.target.value))} type="text" placeholder="Enter email" />
@@ -38,7 +31,6 @@ const UserSignUp = () => {
                     </label>
                     <button >Submit</button>
                 </form>
-            </form>
         </div>
     );
 }
