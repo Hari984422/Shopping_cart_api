@@ -1,25 +1,35 @@
 import { useState } from 'react'
-import { useNavigate} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
+import Form from 'react-bootstrap/Form';
 const UserLogin = () => {
     let [uname,setuname] = useState("")
     let [pwd,setpwd] = useState("")
     let navigate  = useNavigate()
    let handleSubmit =()=>{
-    if(uname === "abcd" && pwd === "1234"){
-        navigate("/userlogin/userHome")
+    if(uname === "user" && pwd === "1234"){
+        navigate("/userhome")
     }else{
-        navigate("/usersignup")
+        alert("Please enter your username")
     }
    }
 
     return ( 
         <div className="userlogin">
-
-               <form onSubmit={handleSubmit} action="">
-               <input value={uname} onChange={(e) => {setuname(e.target.value)}} placeholder="Username" type="text" />
-                <input value={pwd} onChange={(e) => {setpwd(e.target.value)}} placeholder="Password" type="password" />
-                <button>submit</button>
-               </form>
+ <Form>
+      <Form.Group className="mb-3" controlId="formGroupEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control value={uname} onChange={(e) => {setuname(e.target.value)}} type="email" placeholder="Enter email" />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formGroupPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control value={pwd} onChange={(e) => {setpwd(e.target.value)}}  type="password" placeholder="Password" />
+      </Form.Group>
+      <button className='btn btn-primary' onClick={handleSubmit}>Sign In</button>
+        <Link to='/usersignup'><button  class="btn btn-outline-danger">Sign Up</button></Link>
+        <Link to="/userforgotpassword">Forgot Password</Link>
+   
+    </Form>
+             
         </div>
      );
 }
