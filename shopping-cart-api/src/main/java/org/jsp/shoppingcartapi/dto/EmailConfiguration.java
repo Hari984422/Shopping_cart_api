@@ -10,6 +10,6 @@ import lombok.Data;
 @Data
 public class EmailConfiguration {
 	private String subject;
-	private String template;
+	private String text;
 	private Map<String, String> user;
 }

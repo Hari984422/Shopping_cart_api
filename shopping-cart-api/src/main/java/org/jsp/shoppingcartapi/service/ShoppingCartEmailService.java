@@ -22,9 +22,8 @@ public class ShoppingCartEmailService {
 				MimeMessageHelper helper = new MimeMessageHelper(message);
 				helper.setTo(configuration.getUser().get("email"));
 				helper.setSubject(configuration.getSubject());
-				helper.setText("Welcome OnBoard  ");
+				helper.setText(configuration.getText());
 				mailSender.send(message);
-				System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 				return "mail sent";
 
 			} catch (MailException | MessagingException e) {
