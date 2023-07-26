@@ -13,4 +13,16 @@ public class MerchantDao {
 	public Merchant saveMerchant(Merchant merchant) {
 		return repository.save(merchant);
 	}
+
+	public Merchant updateMerchant(Merchant merchant) {
+		return repository.save(merchant);
+	}
+
+	public Merchant verifyMerchant(String token) {
+		return repository.findMerchantByToken(token);
+	}
+
+	public Merchant findMerchantByEmail(String email) {
+		return repository.findMerchantByEmail(email);
+	}
 }
