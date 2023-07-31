@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 const MerchantForgotPassword = () => {
     let [email,setemail] = useState("")
     let handleclick = () =>{
-        axios.post('')
+        axios.post('http://localhost:8080/merchants/verify')
         .then(()=>{
             alert("OTP has been sent to your ",email)
         })
