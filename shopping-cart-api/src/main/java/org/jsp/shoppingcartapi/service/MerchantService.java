@@ -97,4 +97,12 @@ public class MerchantService {
 		}
 		throw new IdNotFoundException();
 	}
+
+	public ResponseEntity<ResponseStructure<Merchant>> updateMerchant(Merchant merchant) {
+		ResponseStructure<Merchant> structure = new ResponseStructure<>();
+		structure.setData(dao.updateMerchant(merchant));
+		structure.setStatusCode(HttpStatus.ACCEPTED.value());
+		structure.setMessage("Merchant Updated");
+		return new ResponseEntity<ResponseStructure<Merchant>>(structure, HttpStatus.ACCEPTED);
+	}
 }

@@ -40,4 +40,5 @@ public class ProductController {
 	public ResponseEntity<ResponseStructure<String>> deleteProduct(@PathVariable int id) {
 		return service.deleteProduct(id);
 	}
+
 }
