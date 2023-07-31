@@ -1,5 +1,7 @@
 package org.jsp.shoppingcartapi.dao;
 
+import java.util.Optional;
+
 import org.jsp.shoppingcartapi.dto.Merchant;
 import org.jsp.shoppingcartapi.repository.MerchantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +26,13 @@ public class MerchantDao {
 
 	public Merchant findMerchantByEmail(String email) {
 		return repository.findMerchantByEmail(email);
+	}
+
+	public Optional<Merchant> verifyMerchant(String email, String password) {
+		return repository.verifyMerchant(email, password);
+	}
+
+	public Optional<Merchant> findById(int id) {
+		return repository.findById(id);
 	}
 }
