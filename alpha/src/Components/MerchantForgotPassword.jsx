@@ -1,10 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
-import Form from 'react-bootstrap/Form';
 const MerchantForgotPassword = () => {
     let [email,setemail] = useState("")
+    console.log(email);
     let handleclick = () =>{
-        axios.post('')
+        axios.post(`http://localhost/8080/merchants/verify/email=${email}`)
         .then(()=>{
             alert("OTP has been sent to your ",email)
         })
@@ -14,13 +14,11 @@ const MerchantForgotPassword = () => {
     }
     return ( 
         <div className="MerchantForgotPassword">
-            <Form>
-      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control value={email} onchange={(e) => {setemail(e.target.value)}} type="email" placeholder="name@example.com" />
-        <button onClick={handleclick}>Reset</button>
-      </Form.Group>
-      </Form>
+            <form action="">
+            <input type="email" value={email} onchange={(e) => {setemail(e.target.value)}}  />
+            <button onClick={handleclick}>Reset</button>
+            </form>
+           
         </div>
      );
 }

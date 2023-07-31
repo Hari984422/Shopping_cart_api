@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 const UserSignUp = () => {
     let [name,setname] = useState("")
     let [email,setemail] = useState("")
@@ -7,9 +8,10 @@ const UserSignUp = () => {
     let [gst,setgst] = useState("")
     let [phone,setphone] = useState("")
 
-    let handleSubmit = () => {
+    let handleSubmit = (e) => {
+        e.preventDefault()
         let merchant = {name,email,password,gst,phone}
-        axios.post("http://localhost:8080/merchants",merchant).then(()=>{console.log("Data has been added");})    
+        axios.post("http://localhost:8080/users",merchant).then((response)=>{console.log(response);}) .catch(()=>{console.log("wronggggggggg");})   
     }
     return (  
         <div className="usersignup">

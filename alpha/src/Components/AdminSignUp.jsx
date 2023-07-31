@@ -7,9 +7,10 @@ const MerchantSignUp = () => {
     let [gst,setgst] = useState("")
     let [phone,setphone] = useState("")
 
-    let handleSubmit = () => {
+    let handleSubmit = (e) => {
+        e.preventDefault()
         let merchant = {name,email,password,gst,phone}
-        axios.post("http://localhost:8080/merchants",merchant).then(()=>{console.log("Data has been added");})    
+        axios.post("http://localhost:8080/merchants",merchant).then((response)=>{console.log(response);})    
     }
     return (  
         <div className="merchantsignup">
