@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,5 +41,10 @@ public class UserController {
 	public ResponseEntity<ResponseStructure<User>> verifyUser(@RequestParam String email,
 			@RequestParam String password) {
 		return service.verifyUser(email, password);
+	}
+
+	@PutMapping("/users")
+	public ResponseEntity<ResponseStructure<User>> updateUser(@RequestBody User user) {
+		return service.updateUser(user);
 	}
 }

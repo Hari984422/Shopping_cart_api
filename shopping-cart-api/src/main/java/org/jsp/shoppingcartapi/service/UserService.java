@@ -44,6 +44,14 @@ public class UserService {
 		return new ResponseEntity<ResponseStructure<User>>(structure, HttpStatus.CREATED);
 	}
 
+	public ResponseEntity<ResponseStructure<User>> updateUser(User user) {
+		ResponseStructure<User> structure = new ResponseStructure<>();
+		structure.setData(dao.updateUser(user));
+		structure.setStatusCode(HttpStatus.ACCEPTED.value());
+		structure.setMessage("Merchant Updated");
+		return new ResponseEntity<ResponseStructure<User>>(structure, HttpStatus.ACCEPTED);
+	}
+
 	public ResponseEntity<ResponseStructure<String>> verifyUser(String token) {
 		ResponseStructure<String> structure = new ResponseStructure<>();
 		User user = dao.verifyUser(token);
