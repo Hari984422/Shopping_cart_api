@@ -1,8 +1,8 @@
 package org.jsp.shoppingcartapi.controller;
 
-import org.jsp.shoppingcartapi.dto.Merchant;
 import org.jsp.shoppingcartapi.dto.ResponseStructure;
-import org.jsp.shoppingcartapi.service.MerchantService;
+import org.jsp.shoppingcartapi.dto.User;
+import org.jsp.shoppingcartapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,30 +16,29 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
 @CrossOrigin("http://localhost:3000/")
-public class MerchantController {
+public class UserController {
 	@Autowired
-	private MerchantService service;
+	private UserService service;
 
-	@PostMapping("/merchants")
-	public ResponseEntity<ResponseStructure<Merchant>> saveMerchant(@RequestBody Merchant merchant,
-			HttpServletRequest request) {
-		return service.saveMerchant(merchant, request);
+	@PostMapping("/users")
+	public ResponseEntity<ResponseStructure<User>> saveUser(@RequestBody User user, HttpServletRequest request) {
+		return service.saveUser(user, request);
 	}
 
-	@GetMapping("/merchants/verify-account")
-	public ResponseEntity<ResponseStructure<String>> verifyMerchant(@RequestParam String token) {
-		return service.verifyMerchant(token);
+	@GetMapping("/users/verify-account")
+	public ResponseEntity<ResponseStructure<String>> verifyUser(@RequestParam String token) {
+		return service.verifyUser(token);
 	}
 
-	@PostMapping("/merchants/forgot-password")
+	@PostMapping("/users/forgot-password")
 	public ResponseEntity<ResponseStructure<String>> forgotPassword(@RequestParam String email,
 			HttpServletRequest request) {
 		return service.sendResetPasswordLink(email, request);
 	}
 
-	@PostMapping("/merchants/verify")
-	public ResponseEntity<ResponseStructure<Merchant>> verifyUser(@RequestParam String email,
+	@PostMapping("/users/verify")
+	public ResponseEntity<ResponseStructure<User>> verifyUser(@RequestParam String email,
 			@RequestParam String password) {
-		return service.verifyMerchant(email, password);
+		return service.verifyUser(email, password);
 	}
 }

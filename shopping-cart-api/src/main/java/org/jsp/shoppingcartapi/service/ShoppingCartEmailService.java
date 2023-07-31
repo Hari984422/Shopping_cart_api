@@ -15,7 +15,7 @@ public class ShoppingCartEmailService {
 	@Autowired
 	private JavaMailSender mailSender;
 
-	public String sendWelcomeEmail(EmailConfiguration configuration) {
+	public String sendMail(EmailConfiguration configuration) {
 		if (configuration.getUser().get("email") != null) {
 			try {
 				MimeMessage message = mailSender.createMimeMessage();
@@ -28,10 +28,10 @@ public class ShoppingCartEmailService {
 
 			} catch (MailException | MessagingException e) {
 				e.printStackTrace();
-				return "if unable to send email";
+				return " unable to send email";
 			}
 		} else {
-			return "else unable to send email";
+			return "unable to send email";
 		}
 
 	}
