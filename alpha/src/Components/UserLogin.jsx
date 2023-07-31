@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useState } from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 const UserLogin = () => {
@@ -5,11 +6,15 @@ const UserLogin = () => {
     let [pwd,setpwd] = useState("")
     let navigate  = useNavigate()
    let handleSubmit =()=>{
-    if(uname === "user" && pwd === "1234"){
-        navigate("/userhome")
-    }else{
-        alert("Please enter your username")
-    }
+    axios.post(`http://localhost:8080/users/verify?email=${uname}&password=${pwd}`)
+    .then(()=>{
+        console.log("Login Successfull");
+    navigate("/userhome")
+
+    })
+    .catch(()=>{
+        alert("Login Failed")
+    })
    }
 
     return ( 

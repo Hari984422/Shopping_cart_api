@@ -1,16 +1,22 @@
 import { useState } from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 import Form from 'react-bootstrap/Form';
+import axios from 'axios';
 const AdminLogin = () => {
     let [uname,setuname] = useState("")
     let [pwd,setpwd] = useState("")
     let navigate  = useNavigate()
    let handleSubmit =()=>{
-    if(uname === "admin" && pwd === "1234"){
-        navigate("/merchanthome")
-    }else{
-        alert("Please enter your username")
-    }
+
+    axios.post(`http://localhost:8080/merchants/verify?email=${uname}&password=${pwd}`)
+    .then(()=>{
+        console.log("Login Successfull");
+    navigate("/merchanthome")
+
+    })
+    .catch(()=>{
+        alert("Login Failed")
+    })
    }
 
     return ( 
