@@ -11,6 +11,7 @@ import UserForgotPassword from './Components/UserForgotPassword';
 import 'bootstrap/dist/css/bootstrap.min.css';  
 import MerchantSignUp from './Components/AdminSignUp';
 import MerchantForgotPassword from './Components/MerchantForgotPassword';
+import Protect from './Components/Protect';
 function App() {
   return (
     <div className="App">
@@ -22,7 +23,8 @@ function App() {
       <Route path='/merchantlogin' element={<AdminLogin/>}/>
       <Route path='/usersignup' element={<UserSignUp/>} />
       <Route path='*'element={<Error/>}/>
-      <Route path='/merchanthome' element={<AdminHome/>}/>
+      <Route path='/merchanthome' element={<Protect Child={AdminHome}/>}/>
+      {/* <Route path='/merchanthome' element={<Protect Child={component to be protected}/>}/> */}
       <Route path='/merchantsignup' element={<MerchantSignUp/>}/>
       <Route path='/userforgotpassword' element={<UserForgotPassword/>}/>
       <Route path='/merchantforgotpassword' element={<MerchantForgotPassword/>}/>
