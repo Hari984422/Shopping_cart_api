@@ -10,7 +10,8 @@ const AdminLogin = () => {
       e.preventDefault()
       axios.post(`http://localhost:8081/merchants/verify?email=${email}&password=${password}`)
       .then((response)=>{
-        
+        console.log(response.data.message)
+        console.log(response.data.data)
         let vemail = response.data.data.email
         let vpassword = response.data.data.password
       if (vemail == email && vpassword == password) 
@@ -22,6 +23,8 @@ const AdminLogin = () => {
         alert("Invalid Username or Password")
        }
       })
+
+      
      }
 
     return ( 
