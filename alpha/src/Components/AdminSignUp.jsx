@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import axios from "axios";
 import { useState } from "react";
 const MerchantSignUp = () => {
@@ -11,7 +11,7 @@ const MerchantSignUp = () => {
     let handleSubmit = (e) => {
         e.preventDefault()
         let merchant = {name,email,password,gst,phone}
-        axios.post("http://localhost:8080/merchants",merchant).then((response)=>{console.log(response);})    
+        axios.post("http://localhost:8081/merchants",merchant).then((response)=>{console.log(response);})    
     }
     return (  
         <div className="merchantsignup">
@@ -36,45 +36,4 @@ const MerchantSignUp = () => {
         </div>
     );
 }
- 
-=======
-import axios from "axios";
-import { useState } from "react";
-const MerchantSignUp = () => {
-    let [name,setname] = useState("")
-    let [email,setemail] = useState("")
-    let [password,setpassword] = useState("")
-    let [gst,setgst] = useState("")
-    let [phone,setphone] = useState("")
-
-    let handleSubmit = (e) => {
-        e.preventDefault()
-        let merchant = {name,email,password,gst,phone}
-        axios.post("http://localhost:8080/merchants",merchant).then((response)=>{console.log(response);})    
-    }
-    return (  
-        <div className="merchantsignup">
-            <form onSubmit={handleSubmit} action="">
-                    <label htmlFor="">
-                        Name: <input value={name} onChange={(e) => (setname(e.target.value))} placeholder="Enter name" type="text" name="" id="" />
-                    </label>
-                    <label htmlFor="">
-                        GST no: <input value={gst} onChange={(e) => (setgst(e.target.value))} type="text" placeholder="Enter GST number" />
-                    </label>
-                    <label htmlFor="">
-                        phone no : <input value={phone} onChange={(e) => (setphone(e.target.value))} pattern="[0-9]{10}" type="tel" placeholder="Enter phone number" />
-                    </label>
-                    <label htmlFor="">
-                        email : <input value={email} onChange={(e) => (setemail(e.target.value))} type="text" placeholder="Enter email" />
-                    </label>
-                    <label htmlFor="">
-                        password : <input value={password} onChange={(e) => (setpassword(e.target.value))} type="password" placeholder="Enter password" />
-                    </label>
-                    <button >Submit</button>
-                </form>
-        </div>
-    );
-}
- 
->>>>>>> 66f48c47be12975270ab0794411a314aefc53b68
 export default MerchantSignUp;
