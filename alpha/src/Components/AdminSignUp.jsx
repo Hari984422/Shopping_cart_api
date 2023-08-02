@@ -10,7 +10,7 @@ const MerchantSignUp = () => {
     let handleSubmit = (e) => {
         e.preventDefault()
         let merchant = {name,email,password,gst,phone}
-        axios.post("http://localhost:8080/merchants",merchant).then((response)=>{console.log(response);})    
+        axios.post("http://localhost:8081/merchants",merchant).then((response)=>{console.log(response.data.data);})    
     }
     return (  
         <div className="merchantsignup">

@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MerchantSignUp from './Components/AdminSignUp';
 import MerchantForgotPassword from './Components/MerchantForgotPassword';
 import Protect from './Components/Protect';
+import AddProduct from './AddProduct';
 function App() {
   return (
     <div className="App">
@@ -28,6 +29,7 @@ function App() {
       <Route path='/merchantsignup' element={<MerchantSignUp/>}/>
       <Route path='/userforgotpassword' element={<UserForgotPassword/>}/>
       <Route path='/merchantforgotpassword' element={<MerchantForgotPassword/>}/>
+      <Route path="/addProduct" element={<AddProduct/>}/>
       </Routes>
      </BrowserRouter>
     </div>
