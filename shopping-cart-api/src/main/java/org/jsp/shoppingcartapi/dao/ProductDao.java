@@ -32,4 +32,12 @@ public class ProductDao {
 	public List<Product> findProductsByMerchantId(int merchant_id) {
 		return repository.findProductsByMerchantId(merchant_id);
 	}
+
+	public List<Product> findProductsByBrand(String brand) {
+		return repository.findProductsByBrand(brand);
+	}
+
+	public List<Product> findProductsByCategory(String category) {
+		return repository.findProductsByCategory(category);
+	}
 }

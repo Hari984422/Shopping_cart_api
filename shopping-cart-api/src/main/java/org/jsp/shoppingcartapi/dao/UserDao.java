@@ -1,7 +1,9 @@
 package org.jsp.shoppingcartapi.dao;
 
+import java.util.List;
 import java.util.Optional;
 
+import org.jsp.shoppingcartapi.dto.Product;
 import org.jsp.shoppingcartapi.dto.User;
 import org.jsp.shoppingcartapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +33,4 @@ public class UserDao {
 	public Optional<User> verifyUser(String email, String password) {
 		return repository.verifyUser(email, password);
 	}
-	
 }

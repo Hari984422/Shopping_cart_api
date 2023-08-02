@@ -1,7 +1,5 @@
-
 import axios from "axios";
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
 const UserSignUp = () => {
     let [name,setname] = useState("")
     let [email,setemail] = useState("")
@@ -33,5 +31,4 @@ const UserSignUp = () => {
         </div>
     );
 }
-
 export default UserSignUp;

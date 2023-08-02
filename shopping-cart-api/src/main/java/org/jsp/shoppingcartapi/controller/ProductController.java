@@ -43,4 +43,13 @@ public class ProductController {
 		return service.deleteProduct(id);
 	}
 
+	@GetMapping("/products/byBrand/{brand}")
+	public ResponseEntity<ResponseStructure<List<Product>>> findProductsByBrand(@PathVariable String brand) {
+		return service.findProductsByBrand(brand);
+	}
+
+	@GetMapping("/products/byCategory/{category}")
+	public ResponseEntity<ResponseStructure<List<Product>>> findProductsByCategory(@PathVariable String category) {
+		return service.findProductsByBrand(category);
+	}
 }
