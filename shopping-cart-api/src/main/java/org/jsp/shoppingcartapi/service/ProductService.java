@@ -84,4 +84,20 @@ public class ProductService {
 		structure.setMessage("Products loaded");
 		return new ResponseEntity<ResponseStructure<List<Product>>>(structure, HttpStatus.OK);
 	}
+
+	public ResponseEntity<ResponseStructure<List<Product>>> findProductsByBrand(String brand) {
+		ResponseStructure<List<Product>> structure = new ResponseStructure<>();
+		structure.setData(dao.findProductsByBrand(brand));
+		structure.setMessage("The product Brand found");
+		structure.setStatusCode(HttpStatus.OK.value());
+		return new ResponseEntity<ResponseStructure<List<Product>>>(structure, HttpStatus.OK);
+	}
+
+	public ResponseEntity<ResponseStructure<List<Product>>> findProductsByCategory(String category) {
+		ResponseStructure<List<Product>> structure = new ResponseStructure<>();
+		structure.setData(dao.findProductsByCategory(category));
+		structure.setMessage("The product Brand found");
+		structure.setStatusCode(HttpStatus.OK.value());
+		return new ResponseEntity<ResponseStructure<List<Product>>>(structure, HttpStatus.OK);
+	}
 }
