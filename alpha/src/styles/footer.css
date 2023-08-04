@@ -1,0 +1,10 @@
+.Footer{
+    background-color: darkblue;
+    height: 50px;
+}
+.Footer a{
+    padding: 20px 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}

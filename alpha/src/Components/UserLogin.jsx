@@ -1,37 +1,40 @@
-import { useState } from 'react'
-import {Link,useNavigate} from 'react-router-dom'
 import Form from 'react-bootstrap/Form';
+import '../styles/userlogin.css'
+import { Link,useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import axios from 'axios';
 const UserLogin = () => {
-  let[uname,setuname]=useState("")
-    let [email,setEmail] = useState("")
-    let [password,setpassword] = useState("")
-    let navigate  = useNavigate()
-   let handleSubmit =(e)=>{
-    e.preventDefault()
-    axios.post(`http://localhost:8081/users/verify?email=${email}&password=${password}`).then((response)=>{
-      console.log(response);
+  let [uname,setuname] = useState("")
+  let [pwd,setpwd] = useState("")
+  let navigate = useNavigate()
+  let handleSubmit = () => {
+    axios.post(`http://localhost:8080/users/verify/email=${uname}&password=${pwd}`)
+    .then(()=>{
+      navigate('/userhome')
     })
-   }
-
+    .catch(()=>{
+      alert("Invalid user name")
+    })
+  }
     return ( 
         <div className="userlogin">
- <Form>
+           <div className="input_group">
+           <Form>
       <Form.Group className="mb-3" controlId="formGroupEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control value={email} onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder="Enter email" />
+        <Form.Control value={uname} onChange={(e) => {setuname(e.target.value)}} type="email" placeholder="Enter email" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formGroupPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control value={password} onChange={(e) => {setpassword(e.target.value)}}  type="password" placeholder="Password" />
+        <Form.Control value={pwd} onChange={(e) => {setpwd(e.target.value)}} type="password" placeholder=" Password" />
       </Form.Group>
-      <button className='btn btn-primary' onClick={handleSubmit}>Sign In</button>
-        <Link to='/usersignup'><button  class="btn btn-outline-danger">Sign Up</button></Link>
-        <Link to="/userforgotpassword">Forgot Password</Link>
-   
+      <button onClick={handleSubmit} className='btn btn-outline-primary'>Sign in</button> 
+    <Link to="/usersignup"><button className='btn btn-danger'>Sign Up</button></Link>
     </Form>
-             
+   
+           </div>
         </div>
      );
 }
+ 
 export default UserLogin;

@@ -1,8 +1,8 @@
 import Form from 'react-bootstrap/Form';
-import '../styles/usersignup.css'
+import '../styles/merchantsignup.css'
 import { useState } from 'react';
 import axios from 'axios'
-const UserSignUp = () => {
+const MerchantSignUp = () => {
     let [uname,setuname ] = useState("")
     let [email,setemail] = useState("")
     let [password,setpassword] = useState("")
@@ -12,7 +12,7 @@ const UserSignUp = () => {
     let data = {uname,email,password,phone,gst}
 
     let handleClick = () =>{
-      axios.post('http://localhost:8080/users',data)
+      axios.post('http://localhost:4000/Merchants',data)
     .then(()=>{
       alert("Data added Successfully")
       console.log("Data added Successfully");
@@ -23,8 +23,8 @@ const UserSignUp = () => {
     }
 
     return ( 
-        <div className="UserSignUp">
-            <Form id='form'>
+        <div className="MerchantSignUp">
+            <Form id="form">
       <Form.Group className="mb-3" >
         <Form.Label>Name</Form.Label>
         <Form.Control value={uname} onChange={(e) => {setuname(e.target.value)}}  type="text" placeholder="Enter Name" />
@@ -52,4 +52,4 @@ const UserSignUp = () => {
      );
 }
  
-export default UserSignUp;
+export default MerchantSignUp;

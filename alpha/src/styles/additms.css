@@ -1,0 +1,11 @@
+.Additmes{
+    width: 50%;
+    transform: translateX(50%);
+    background: linear-gradient(orange,crimson);
+    padding: 0px 100px;
+    margin: 20px;
+    border-radius: 5%;
+    box-shadow: 0px 0px 10px orange;
+}
+
+
