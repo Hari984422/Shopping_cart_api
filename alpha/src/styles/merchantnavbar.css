@@ -1,0 +1,6 @@
+.wishlist{
+    display: flex;
+}
+.wishlist h3{
+    margin: 0px 10px;
+}

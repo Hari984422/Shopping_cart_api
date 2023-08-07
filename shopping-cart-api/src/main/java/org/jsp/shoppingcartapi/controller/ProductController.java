@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -51,5 +52,24 @@ public class ProductController {
 	@GetMapping("/products/byCategory/{category}")
 	public ResponseEntity<ResponseStructure<List<Product>>> findProductsByCategory(@PathVariable String category) {
 		return service.findProductsByCategory(category);
+	}
+
+	@PostMapping("/products/{product_id}/{user_id}")
+	public ResponseEntity<ResponseStructure<String>> addToCart(@PathVariable int user_id,
+			@PathVariable int product_id) {
+		return service.addToCart(product_id, user_id);
+	}
+
+	@PostMapping("/products/add/{product_id}/{user_id}")
+	public ResponseEntity<ResponseStructure<String>> addToWishList(@PathVariable int user_id,
+			@PathVariable int product_id) {
+		return service.addToWishList(product_id, user_id);
+	}
+
+	@PutMapping("/products/rate/{pid}/{uid}")
+	public String rateProduct(@PathVariable int uid, @PathVariable int pid, @RequestParam double rating) {
+
+		service.rateProduct(uid, pid, rating);
+		return "product rated";
 	}
 }
