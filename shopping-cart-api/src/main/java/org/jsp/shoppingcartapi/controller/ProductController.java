@@ -52,4 +52,16 @@ public class ProductController {
 	public ResponseEntity<ResponseStructure<List<Product>>> findProductsByCategory(@PathVariable String category) {
 		return service.findProductsByBrand(category);
 	}
+
+	@PostMapping("/products/{product_id}/{user_id}")
+	public ResponseEntity<ResponseStructure<String>> addToCart(@PathVariable int user_id,
+			@PathVariable int product_id) {
+		return service.addToCart(product_id, user_id);
+	}
+
+	@PostMapping("/products/add/{product_id}/{user_id}")
+	public ResponseEntity<ResponseStructure<String>> addToWishList(@PathVariable int user_id,
+			@PathVariable int product_id) {
+		return service.addToWishList(product_id, user_id);
+	}
 }

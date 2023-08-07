@@ -47,4 +47,5 @@ public class UserController {
 	public ResponseEntity<ResponseStructure<User>> updateUser(@RequestBody User user) {
 		return service.updateUser(user);
 	}
+	
 }
