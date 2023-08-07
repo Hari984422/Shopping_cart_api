@@ -141,4 +141,21 @@ public class ProductService {
 		structure.setStatusCode(HttpStatus.NOT_FOUND.value());
 		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
 	}
+
+	public ResponseEntity<ResponseStructure<String>> rateProduct(int product_id, int user_id, double rating) {
+		Optional<User> recUser = userDao.findById(user_id);
+		Optional<Product> recProduct = dao.findById(product_id);
+		if (recUser.isPresent() && recProduct.isPresent()) {
+			Product p = recProduct.get();
+			int n = p.getNo_of_users();
+			double r = p.getRating() * n++;
+			rating = (r + rating) / n;
+			p.setNo_of_users(n);
+			p.setRating(rating);
+			dao.updateProduct(p);
+			return null;
+		}
+		return null;
+	}
+
 }
