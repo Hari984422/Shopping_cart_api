@@ -12,7 +12,7 @@ const MerchantSignUp = () => {
     let data = {uname,email,password,phone,gst}
 
     let handleClick = () =>{
-      axios.post('http://localhost:4000/Merchants',data)
+      axios.post('http://localhost:8080/merchants',data)
     .then(()=>{
       alert("Data added Successfully")
       console.log("Data added Successfully");

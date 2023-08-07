@@ -8,7 +8,6 @@ const UserHome = () => {
       <Routes>
         <Route path="/" element={<UserDashBoard/>}/>
       </Routes>
-    
     </div>
    );
 }
