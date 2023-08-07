@@ -8,7 +8,7 @@ const AdminLogin = () => {
     let navigate  = useNavigate()
     let handleSubmit =(e)=>{
       e.preventDefault()
-      axios.post(`http://localhost:8081/merchants/verify?email=${email}&password=${password}`)
+      axios.post(`http://localhost:8080/merchants/verify?email=${email}&password=${password}`)
       .then((response)=>{
         console.log(response.data.message)
         console.log(response.data.data)

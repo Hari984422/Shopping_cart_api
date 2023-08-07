@@ -9,7 +9,7 @@ const AddProduct = () => {
     let handleSubmit=(e)=>{
 e.preventDefault()
 let prod={name,brand,category,description}
-axios.post("http://localhost:8081/products/1",prod)
+axios.post("http://localhost:8080/products/1",prod)
     }
   return (
     <div className="usersignup">
