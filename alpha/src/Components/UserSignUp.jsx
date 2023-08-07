@@ -9,7 +9,7 @@ const UserSignUp = () => {
     let handleSubmit = (e) => {
         e.preventDefault()
         let merchant = {name,email,password,phone}
-        axios.post("http://localhost:8081/users",merchant).then((response)=>{console.log(response);}) .catch(()=>{console.log("wronggggggggg");})   
+        axios.post("http://localhost:8080/users",merchant).then((response)=>{console.log(response);}) .catch(()=>{console.log("wronggggggggg");})   
     }
     return (  
         <div className="usersignup">
