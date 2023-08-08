@@ -30,7 +30,7 @@ function App() {
           <Route path='/merchantforgotpassword' element={<MerchantForgotPassword />} />
         </Routes>
       </BrowserRouter>
-    </div>
+ </div>
   );
 }
 

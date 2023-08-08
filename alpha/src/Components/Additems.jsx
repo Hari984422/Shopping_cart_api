@@ -17,7 +17,7 @@ const AddItems = () => {
     e.preventDefault();
     let data = {category,name,cost,imageurl,brand,description};
     let admin = JSON.parse(localStorage.getItem("currentMerchant"));
-    axios.post(`http://localhost:8081/products/${admin.id}`,data)
+    axios.post(`http://localhost:8080/products/${admin.id}`,data)
     .then((res)=>{
     console.log(res);
 

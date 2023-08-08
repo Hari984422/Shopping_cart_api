@@ -33,7 +33,7 @@ const UserLogin = () => {
     </Form>
    
            </div>
-        </div>
+</div>
      );
 }
  
