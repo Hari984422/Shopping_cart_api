@@ -51,7 +51,7 @@ public class ProductController {
 
 	@GetMapping("/products/byCategory/{category}")
 	public ResponseEntity<ResponseStructure<List<Product>>> findProductsByCategory(@PathVariable String category) {
-		return service.findProductsByBrand(category);
+		return service.findProductsByCategory(category);
 	}
 
 	@PostMapping("/products/{product_id}/{user_id}")
