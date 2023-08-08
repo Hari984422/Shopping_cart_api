@@ -27,11 +27,11 @@ public class User {
 	private String token;
 	private String status;
 	@OneToMany
-	@JoinTable(name = "user_cart", joinColumns = @JoinColumn(name = "user_id"),
-	inverseJoinColumns = @JoinColumn(name = "product_id"))
+	@JoinTable(name = "user_cart", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
 	private List<Product> cart;
 	@OneToMany
-	@JoinTable(name = "user_wishList", joinColumns = @JoinColumn(name = "user_id"), 
-	inverseJoinColumns = @JoinColumn(name = "product_id"))
+	@JoinTable(name = "user_wishList", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
 	private List<Product> wishList;
+	@OneToMany(mappedBy = "user")
+	private List<Address> addresses;
 }
