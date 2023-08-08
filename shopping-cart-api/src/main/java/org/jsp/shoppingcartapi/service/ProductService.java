@@ -142,9 +142,10 @@ public class ProductService {
 		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
 	}
 
-	public ResponseEntity<ResponseStructure<String>> rateProduct(int product_id, int user_id, double rating) {
+	public ResponseEntity<ResponseStructure<Product>> rateProduct(int product_id, int user_id, double rating) {
 		Optional<User> recUser = userDao.findById(user_id);
 		Optional<Product> recProduct = dao.findById(product_id);
+		ResponseStructure<Product> structure = new ResponseStructure<>();
 		if (recUser.isPresent() && recProduct.isPresent()) {
 			Product p = recProduct.get();
 			int n = p.getNo_of_users();
@@ -153,9 +154,15 @@ public class ProductService {
 			p.setNo_of_users(n);
 			p.setRating(rating);
 			dao.updateProduct(p);
-			return null;
+			structure.setData(p);
+			structure.setMessage("Product rated");
+			structure.setStatusCode(HttpStatus.ACCEPTED.value());
+			return new ResponseEntity<ResponseStructure<Product>>(structure, HttpStatus.ACCEPTED);
 		}
-		return null;
+		structure.setData(null);
+		structure.setMessage("cannot rate product");
+		structure.setStatusCode(HttpStatus.NOT_ACCEPTABLE.value());
+		return new ResponseEntity<ResponseStructure<Product>>(structure, HttpStatus.NOT_ACCEPTABLE);
 	}
 
 }

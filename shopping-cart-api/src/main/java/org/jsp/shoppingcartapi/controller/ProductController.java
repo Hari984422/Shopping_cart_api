@@ -67,9 +67,8 @@ public class ProductController {
 	}
 
 	@PutMapping("/products/rate/{pid}/{uid}")
-	public String rateProduct(@PathVariable int uid, @PathVariable int pid, @RequestParam double rating) {
-
-		service.rateProduct(uid, pid, rating);
-		return "product rated";
+	public ResponseEntity<ResponseStructure<Product>> rateProduct(@PathVariable int uid, @PathVariable int pid,
+			@RequestParam double rating) {
+		return service.rateProduct(uid, pid, rating);
 	}
 }
