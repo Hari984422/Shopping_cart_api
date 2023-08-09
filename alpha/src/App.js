@@ -13,6 +13,7 @@ import MerchantSignUp from './Components/AdminSignUp';
 import MerchantForgotPassword from './Components/MerchantForgotPassword';
 import Protect from './Components/Protect';
 import AddProduct from './Components/AddProduct';
+import UpdateMerchant from './Components/UpdateMerchant';
 function App() {
   return (
     <div className="App">
@@ -30,6 +31,7 @@ function App() {
       <Route path='/userforgotpassword' element={<UserForgotPassword/>}/>
       <Route path='/merchantforgotpassword' element={<MerchantForgotPassword/>}/>
       <Route path="/addProduct" element={<AddProduct/>}/>
+      <Route path='/updatemerchant' element={<UpdateMerchant/>}/>
       </Routes>
      </BrowserRouter>
     </div>
