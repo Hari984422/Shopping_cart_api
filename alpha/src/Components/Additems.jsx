@@ -9,14 +9,14 @@ const AddItems = () => {
   let [category,setcategory] = useState("")
   let [name,setname] = useState("")
   let [cost,setmrp] = useState("")
-  // let [discount,setdiscount] = useState("")
-  let [imageurl,setimageurl] = useState("")
+  let [image,setimageurl] = useState("")
   let [description,setdescription] = useState("")
+  let admin = JSON.parse(localStorage.getItem("currentMerchant"));
 
+    
    let loadData = (e)=>{
     e.preventDefault();
-    let data = {category,name,cost,imageurl,brand,description};
-    let admin = JSON.parse(localStorage.getItem("currentMerchant"));
+    let data = {category,name,cost,image,brand,description};
     axios.post(`http://localhost:8080/products/${admin.id}`,data)
     .then((res)=>{
     console.log(res);
@@ -32,11 +32,30 @@ const AddItems = () => {
         <div className="Additmes">
             <br />
              <Form.Select value={category}  onChange={(e)=>{setcategory(e.target.value)}}  aria-label="Default select example">
-      <option  >One</option>
-      <option >Two</option>
-      <option >Three</option>
+      <option >Bike Accesories</option>
+      <option >Mobile</option>
+      <option >Mobile Accesories</option>
+      <option >Wearables</option>
+      <option >Dress</option>
     </Form.Select>
     <br />
+    <Form.Select value={brand}  onChange={(e)=>{setbrand(e.target.value)}}  aria-label="Default select example">
+    <option>puma</option>
+    <option>Honda</option>
+    <option >KAWASAKI</option>
+    <option >Harley Davidson</option>
+    <option >Royal Enfield</option>
+    <option >Hyundai</option>
+    <option >Pantaloons</option>
+    <option>Zudio</option>
+    <option>WestSide</option>
+    <option>Samsung</option>
+    <option >OPPO</option>
+    <option >VIVO</option>
+    <option >IPhone</option>
+    lore
+    </Form.Select>   
+      <br />
     <InputGroup className="mb-3">
         <InputGroup.Text id="inputGroup-sizing-default">
           Product Name :
@@ -57,22 +76,13 @@ const AddItems = () => {
         />
       </InputGroup>
       <br />
-      <InputGroup className="mb-3">
-        <InputGroup.Text id="inputGroup-sizing-default">
-        Brand :
-        </InputGroup.Text>
-        <Form.Control value={brand} onChange={(e)=>{setbrand(e.target.value)}}
-          aria-label="Default"
-          aria-describedby="inputGroup-sizing-default"
-        />
-      </InputGroup>
-      <br />
+      
       
       <InputGroup className="mb-3">
         <InputGroup.Text id="inputGroup-sizing-default">
           Thumbnail URL:
         </InputGroup.Text>
-        <Form.Control value={imageurl} onChange={(e)=>{setimageurl(e.target.value)}}
+        <Form.Control value={image} onChange={(e)=>{setimageurl(e.target.value)}}
           aria-label="Default"
           aria-describedby="inputGroup-sizing-default"
         />

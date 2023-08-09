@@ -12,7 +12,7 @@ const MerchantNavbar = () => {
                 </div>
                 <div className="options"> 
                 <div className="wishlist">
-                    <Link to="/products"><h3>Products</h3></Link>
+                    <Link to="/merchanthome/products"><h3>Products</h3></Link>
                     <Link to="/merchanthome/additems"><h3>AddItems</h3></Link>
                 </div>
                 <div className="search">

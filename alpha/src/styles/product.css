@@ -1,0 +1,20 @@
+.display{
+    display: flex;
+    box-shadow: 0px 0px 10px grey;
+    margin:10px  0px ;
+}
+
+.image  img{
+    height:300px;
+    width: 200px;
+}
+.image :hover{
+    transform: rotatey(360deg);
+    transition: 5s;
+}
+.details{
+    transform: translate(100px);
+}
+.image{
+    background-color: white;
+}

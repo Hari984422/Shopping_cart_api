@@ -3,13 +3,13 @@ import '../styles/usersignup.css'
 import { useState } from 'react';
 import axios from 'axios'
 const UserSignUp = () => {
-    let [uname,setuname ] = useState("")
+    let [name,setuname ] = useState("")
     let [email,setemail] = useState("")
     let [password,setpassword] = useState("")
     let [phone,setphone] = useState("")
     let [gst,setgst] = useState("")
 
-    let data = {uname,email,password,phone,gst}
+    let data = {name,email,password,phone,gst}
 
     let handleClick = () =>{
       axios.post('http://localhost:8080/users',data)
@@ -27,7 +27,7 @@ const UserSignUp = () => {
             <Form id='form'>
       <Form.Group className="mb-3" >
         <Form.Label>Name</Form.Label>
-        <Form.Control value={uname} onChange={(e) => {setuname(e.target.value)}}  type="text" placeholder="Enter Name" />
+        <Form.Control value={name} onChange={(e) => {setuname(e.target.value)}}  type="text" placeholder="Enter Name" />
       </Form.Group>
       <Form.Group className="mb-3" >
         <Form.Label>Phone No</Form.Label>
