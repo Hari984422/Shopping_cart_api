@@ -12,6 +12,7 @@ import MerchantForgotPassword from './Components/MerchantForgotPassword';
 import Protect from './Components/Protect';
 import MerchantHomePage from './Components/MerchantHomePage';
 import MerchantLogin from './Components/MerchantLogin';
+
 function App() {
   return (
     <div className="App">

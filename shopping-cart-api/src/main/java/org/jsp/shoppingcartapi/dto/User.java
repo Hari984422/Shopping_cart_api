@@ -32,4 +32,6 @@ public class User {
 	@OneToMany
 	@JoinTable(name = "user_wishList", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
 	private List<Product> wishList;
+	@OneToMany(mappedBy = "user")
+	private List<Address> addresses;
 }
