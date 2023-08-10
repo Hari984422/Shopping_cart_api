@@ -1,14 +1,13 @@
 import { Routes,Route } from "react-router-dom";
-import UserDashBoard from "./UserDashboard";
 import Navbar from "./Navbar";
+import ViewProducts from "./viewProducts";
 const UserHome = () => {
   return ( 
     <div className="Userhome">
      <Navbar/>
       <Routes>
-        <Route path="/" element={<UserDashBoard/>}/>
+        <Route path="/" element={<ViewProducts/>}/>
       </Routes>
-    
     </div>
    );
 }

@@ -8,3 +8,12 @@
             /* button{
                 margin: 0px 5px;
             }  */
+            .merchantlogin{
+                background-image: url(https://img.freepik.com/free-photo/shopping-bag-cart_23-2148879372.jpg?w=996&t=st=1691476492~exp=1691477092~hmac=7d7232b835528952abf7365882ea20d8890803f9a6bb6c58e94710390bb0b565);
+                background-size: cover;
+                height: 100vh;
+                width: 100vw;
+                margin: 0px;
+                padding: 100px 250px 0px 0px;
+            }
+           
